@@ -7,9 +7,9 @@
             
         }
 
-        public override void Execute(BasicAI.AIEntity actor)
+        public override void Execute(AIEntity actor)
         {
-            
+            actor.navAgent.SetDestination(actor.target.position);
         }
 
         public override void Exit()

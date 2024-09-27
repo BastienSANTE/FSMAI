@@ -1,4 +1,6 @@
-﻿namespace AdvancedAI
+﻿using UnityEngine;
+
+namespace AdvancedAI
 {
     public class Attack : State
     {
@@ -6,8 +8,9 @@
         {
         }
 
-        public override void Execute(BasicAI.AIEntity actor)
+        public override void Execute(AIEntity actor)
         {
+            Debug.Log("Attacking");
         }
 
         public override void Exit()

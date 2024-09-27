@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AdvancedAI;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace BasicAI
@@ -22,7 +24,8 @@ namespace BasicAI
     
         private GameObject _physicalBody;                   //Actual model of the AI Enemy
         private Rigidbody _rb;                              //RB Component, used for the jump movement
-        [SerializeField] private AIState _currentAIState;   //Current AI State
+        
+        [SerializeField] private AIState currentAIState;   //Current AI State
         public NavMeshAgent navMeshAgent;                 //Component to use for NavMesh
         private Transform _target;                          //Player position, if in detection radius
         private bool _isGrounded;                           //Check to prevent jumping to infinity
@@ -31,7 +34,7 @@ namespace BasicAI
     
         private void Awake()
         {
-            _currentAIState = AIState.Wandering;
+            currentAIState = AIState.Wandering;
             navMeshAgent = GetComponent<NavMeshAgent>();
             _physicalBody = transform.GetChild(0).gameObject;
             _rb = _physicalBody.GetComponent<Rigidbody>();
@@ -46,47 +49,47 @@ namespace BasicAI
                 _physicalBody.transform.position.y - 0.5f,
                 _physicalBody.transform.position.z), checkRadius);
         
-            switch (_currentAIState)
+            switch (currentAIState)
             {
                 case AIState.Wandering:
                     Wandering();
                     if (vision.inVision.Count > 0)
                     {
-                        _currentAIState = AIState.Chasing;
+                        currentAIState = AIState.Chasing;
                         _target = vision.inVision.First().transform;
                     }
                     if (playerReference.attacking)
                     {
-                        _currentAIState = AIState.Fleeing;
+                        currentAIState = AIState.Fleeing;
                     }
                     break;
                 case AIState.Chasing:
                     Chasing();
                     if (vision.inVision.Count == 0)
                     {
-                        _currentAIState = AIState.Wandering;
+                        currentAIState = AIState.Wandering;
                     }
                     if (Vector3.Distance(transform.position, _target.position) <= attackRadius)
                     {
-                        _currentAIState = AIState.Attacking;
+                        currentAIState = AIState.Attacking;
                     }
                     if (playerReference.attacking)
                     {
-                        _currentAIState = AIState.Fleeing;
+                        currentAIState = AIState.Fleeing;
                     }
                     break;
                 case AIState.Attacking:
                     Attacking();
                     if (Vector3.Distance(transform.position, _target.position) > attackRadius)
                     {
-                        _currentAIState = AIState.Chasing;
+                        currentAIState = AIState.Chasing;
                     }
                     break;
                 case AIState.Fleeing:
                     Fleeing();
                     if (vision.inVision.Count == 0)
                     {
-                        _currentAIState = AIState.Wandering;
+                        currentAIState = AIState.Wandering;
                     }
                     break;
                 default:
@@ -113,7 +116,6 @@ namespace BasicAI
             _attackTimer += Time.deltaTime;
             if (_attackTimer > attackCooldown)
             {
-                _target.GetComponent<Player.Player>().TakeDamage();
                 _attackTimer = 0;
                 Debug.Log("Attacking");
             }

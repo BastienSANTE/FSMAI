@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b2e83627-5699-45dc-bc88-0f96680fb3c2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/AIEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/AIEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/Attack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/Chase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/Chase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/Flee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/Flee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/VisionComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/VisionComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/Wander.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdvancedAI/Wander.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BasicAI/AIEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BasicAI/AIEntity.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+</project>
