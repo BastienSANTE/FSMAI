@@ -2,8 +2,15 @@
 {
     public abstract class State
     {
-        public abstract void Enter();
-        public abstract void Execute(AIEntity actor);
-        public abstract void Exit();
+        protected AIEntity Entity;
+
+        protected State(AIEntity entity)
+        {
+            Entity = entity;
+        }
+
+        public abstract void Execute();
+
+        public abstract State NextState();
     }
 }

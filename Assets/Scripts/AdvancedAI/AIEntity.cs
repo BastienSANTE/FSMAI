@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 namespace AdvancedAI
@@ -7,7 +6,7 @@ namespace AdvancedAI
     public class AIEntity : MonoBehaviour
     {
         public VisionComponent vision;        //Viewing frustum, OpenGL style
-        public List<Transform> wanderPoints;  //List of visitable points
+        [HideInInspector] public GameObject[] wanderPoints;  //List of visitable points
         public Player.Player playerReference; //Reference to communicate with player
         public NavMeshAgent navAgent;        //NavMesh utility
         public Transform target;              //Player position, if in detection radius
@@ -26,11 +25,33 @@ namespace AdvancedAI
         private GameObject _physicalBody; //Actual model of the AI Enemy
         private bool _isGrounded;         //Check to prevent jumping to infinity
 
+        private State _state;
+        
         private void Awake()
         {
             navAgent = GetComponent<NavMeshAgent>(); baseSpeed = navAgent.speed;
             _physicalBody = transform.GetChild(0).gameObject;
-            playerReference = GameObject.FindGameObjectWithTag("Player").GetComponent<Player.Player>();
+            GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerGameObject) playerReference = playerGameObject.GetComponent<Player.Player>();
+            _state = new Wander(this);
+        }
+
+        private void Start()
+        {
+            wanderPoints = GameObject.FindGameObjectsWithTag("Waypoint");
+            Debug.Log(wanderPoints.Length);
+        }
+
+        private void Update()
+        {
+            _state.Execute();
+            State nextState = _state.NextState();
+            if (nextState != null) _state = nextState;
+        }
+
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(10, 30, 100, 20), $"AI State: {_state}", new GUIStyle {fontSize = 20});
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Player
         public Rigidbody rigidBody;
         public float movementSpeed;
         public bool attacking;
+        
         private void Start()
         {
             rigidBody = GetComponent<Rigidbody>();
@@ -23,7 +24,10 @@ namespace Player
                 attacking = !attacking;
             }
         }
-        
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(10, 10, 100, 20), $"Player Velocity: {rigidBody.velocity}", new GUIStyle {fontSize = 20});
+        }
     }
 }
 

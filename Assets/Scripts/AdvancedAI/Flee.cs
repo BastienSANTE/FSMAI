@@ -2,18 +2,23 @@
 {
     public class Flee : State
     {
-        public override void Enter()
+        public Flee(AIEntity entity) : base(entity) { }
+
+        public override void Execute()
         {
+            Entity.navAgent.speed = Entity.baseSpeed * Entity.fleeMultiplier;
+            Entity.navAgent.SetDestination(-Entity.target.position);
         }
 
-        public override void Execute(AIEntity actor)
+        public override State NextState()
         {
-            actor.navAgent.speed = actor.baseSpeed * actor.fleeMultiplier;
-            actor.navAgent.SetDestination(-actor.target.position);
-        }
-
-        public override void Exit()
-        {
+            if (Entity.playerReference.attacking)
+            {
+                return null;
+            }
+            
+            return new Wander(Entity);
+            
         }
     }
 }

@@ -4,17 +4,16 @@ namespace AdvancedAI
 {
     public class Attack : State
     {
-        public override void Enter()
-        {
-        }
+        public Attack(AIEntity entity) : base(entity) { }
 
-        public override void Execute(AIEntity actor)
+        public override void Execute()
         {
             Debug.Log("Attacking");
         }
 
-        public override void Exit()
+        public override State NextState()
         {
+            throw new System.NotImplementedException();
         }
     }
 }

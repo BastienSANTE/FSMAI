@@ -18,7 +18,7 @@ namespace BasicAI
         // private bool isSelecting;                        //Prevents from selecting in a loop and freezing, UNUSED
         public float attackRadius;                          //Radius under which attack state is enabled
         public float checkRadius;                           //Radius of sphere for floor collision
-        public Player.Player playerReference;                  //Reference to communicate with player
+        public Player.Player playerReference;               //Reference to communicate with player
         public float fleeMultiplier;                        //Speed multiplier in Flee state
         public float attackCooldown;
     
@@ -26,7 +26,7 @@ namespace BasicAI
         private Rigidbody _rb;                              //RB Component, used for the jump movement
         
         [SerializeField] private AIState currentAIState;   //Current AI State
-        public NavMeshAgent navMeshAgent;                 //Component to use for NavMesh
+        public NavMeshAgent navMeshAgent;                   //Component to use for NavMesh
         private Transform _target;                          //Player position, if in detection radius
         private bool _isGrounded;                           //Check to prevent jumping to infinity
         private float _baseSpeed;
